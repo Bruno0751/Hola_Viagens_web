@@ -36,7 +36,7 @@
         $daoUsuario->cadastrarUsuario($usuario);
 
         $_SESSION['msg'] = "Usuario Cadastrado";
-        header('location:../usuarios-cadastrados.php');
+        header('location:../load.html');
         ob_end_flush();
         
 

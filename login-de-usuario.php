@@ -25,7 +25,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1">
         <meta name="robots" content="index,nofolow">
         
-        <link rel="stylesheet" type="text/css" href="style/estilos.css">
+        <link rel="stylesheet" type="text/css" href="style/styles.css">
         <link rel="shortcut icon" href="#">
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
