@@ -20,7 +20,7 @@
         ob_end_flush();
     }else{
         $_SESSION['privateUser'] = serialize($usuario);
-        $_SESSION['msg'] = "Ola";
+        //$_SESSION['msg'] = "Ola";
         header("location:../login-de-usuario.php.");
         ob_end_flush();
     }

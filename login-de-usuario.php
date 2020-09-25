@@ -90,19 +90,25 @@
 
                     <?php
                         }else{
-                            include "model/usuario.php";
+                            include_once "model/usuario.php";
                             $u = unserialize($_SESSION['privateUser']);
-                            echo "<h2>Olá {$u->nomeCompleto}, seja bem vindo!</h2>";
+                            echo "<h2>Olá{$u->nomeCompleto}, seja bem vindo!</h2>";
+                        
                     ?>
                     
-                    <form method="post" action="control/control-deslogar-usuario.php">
+                    <form method="post" action="#">
                         <div class="form-group">
                             <input type="submit" name="deslogar" value="Sair">
                         </div>
                     </form>
 
                     <?php
+                        if(isset($_POST['deslogar'])){
+                            unset($_SESSION['privateUser']);
+                            $_SESSION['msg'] = "Até Mais";
+                            header("location:usuarios-cadastrados.php");
                         }
+                    }
                     ?>
                     
                 </fieldset>

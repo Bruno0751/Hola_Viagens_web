@@ -10,7 +10,7 @@
     $usuario = new Usuario();
 
     $usuario->idUsuario = Validacao::antiXSS($_POST['textID']);
-    $usuario->nomeCompleto = Validacao::antiXSS(Padronizacao::padronizandoNome($_POST['textNomeCompleto']));
+    $usuario->nomeCompleto = $_POST['textNomeCompleto'];
     $usuario->email = Validacao::antiXSS($_POST['emMail']);
     $usuario->login = Validacao::antiXSS($_POST['textLogin']);
     $usuario->senha = Validacao::antiXSS(Padronizacao::criptografarSenhas($_POST['passSenha']));
