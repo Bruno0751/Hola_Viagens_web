@@ -90,14 +90,14 @@
 
                     <?php
                         }else{
-                            include_once "model/usuario.php";
+                            include "model/usuario.php";
                             $u = unserialize($_SESSION['privateUser']);
                             echo "<h2>Olá {$u->nomeCompleto}, seja bem vindo!</h2>";
                     ?>
                     
                     <form method="post" action="control/control-deslogar-usuario.php">
                         <div class="form-group">
-                            <input type="submit" name="deslogar" value="Sair" class="btn btn-primary">
+                            <input type="submit" name="deslogar" value="Sair">
                         </div>
                     </form>
 

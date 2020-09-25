@@ -85,6 +85,22 @@
       }
     }
 
+    public function verificarImagemDOUsuario($image){
+      try{
+        $stat = $this->conexao->prepare("SELECT * FROM usuario WHERE img = ?");
+
+        $stat->bindValue(1, $image->img);
+
+        $stat->execute();
+
+        $usuario = null;
+        $usuario = $stat->fetchObject('Usuario');
+        return $usuario;
+      }catch(PDOException $erro){
+        echo "Erro ao Verificar Usuarios: ".$erro;
+      }
+    }
+
     public function filtrarUsuario($pesquisa, $filtro){
      try{
        $query = "";

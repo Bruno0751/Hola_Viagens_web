@@ -4,7 +4,7 @@
 
     require_once '../model/usuario.php';
     require_once '../dao/dao-usuario.php';
-                //include 'util/seguranca.class.php';
+    include '../utl/validacao.php';
                 
     $user = new Usuario();
 
@@ -14,7 +14,7 @@
     $uDAO = new DAOUsuario();
     $usuario = $uDAO->verificarUsuario($user);
 
-    if($usuario == null){
+    if($usuario != null){
         $_SESSION['msg'] = "Usuario Inválido";
         header("location:../login-de-usuario.php.");
         ob_end_flush();

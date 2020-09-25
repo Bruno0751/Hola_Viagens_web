@@ -20,8 +20,15 @@
     if($daoUsuario->verificarIDDOUsuario($usuario) != null){
 
         $_SESSION['msg'] = "ID Inválida";
-        header('location:../usuarios-cadastrados.php');
+        header('location:../load.html');
         ob_end_flush();
+
+    }else if($daoUsuario->verificarImagemDOUsuario($usuario) != null){
+
+        $_SESSION['msg'] = "Esta Imagem não é Permitida";
+        header('location:../load.html');
+        ob_end_flush();
+        
 
     }else{
 
@@ -38,7 +45,6 @@
         $_SESSION['msg'] = "Usuario Cadastrado";
         header('location:../load.html');
         ob_end_flush();
-        
 
     }
     //$validacaoEmail = new Validacao();
