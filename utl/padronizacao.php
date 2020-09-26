@@ -5,7 +5,7 @@
         CRIPTOGRAFANDO SENHAS
         */
         public static function criptografarSenhas($senhas){
-            return sha1($senha);
+            return sha1($senhas);
         }
 
         /*

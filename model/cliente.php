@@ -1,7 +1,7 @@
 <?php
-  class Usuario {
+  class Cliente {
 
-    private $idUsuario;
+    private $idCliente;
     private $nomeCompleto;
     private $email;
     private $login;

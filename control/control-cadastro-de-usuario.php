@@ -3,33 +3,38 @@
     ob_start();
 
     include '../dao/dao-usuario.php';
-    include '../model/usuario.php';
+    include '../model/cliente.php';
     include '../utl/padronizacao.php';
     include '../utl/validacao.php';
 
-    $usuario = new Usuario();
+    $cliente = new Cliente();
 
-    $usuario->idUsuario = Validacao::antiXSS($_POST['textID']);
-    $usuario->nomeCompleto = $_POST['textNomeCompleto'];
-    $usuario->email = Validacao::antiXSS($_POST['emMail']);
-    $usuario->login = Validacao::antiXSS($_POST['textLogin']);
-    $usuario->senha = Validacao::antiXSS(Padronizacao::criptografarSenhas($_POST['passSenha']));
-    $usuario->img = $_FILES["imagem"]["name"];
-    $usuario->data = $_POST['dateData'];
+    $cliente->idCliente = Validacao::antiXSS($_POST['textID']);
+    $cliente->nomeCompleto = Validacao::antiXSS(Padronizacao::padronizandoNome($_POST['textNomeCompleto']));
+    $cliente->email = Validacao::antiXSS($_POST['emMail']);
+    $cliente->login = Validacao::antiXSS($_POST['textLogin']);
+    $cliente->senha = Validacao::antiXSS(Padronizacao::criptografarSenhas($_POST['passSenha']));
+    $cliente->img = $_FILES["imagem"]["name"];
+    $cliente->data = $_POST['dateData'];
     
-    $daoUsuario = new DAOUsuario();
-    if($daoUsuario->verificarIDDOUsuario($usuario) != null){
+    $daocliente = new DAOCliente();
+
+    //$verificarIDCliente =
+
+    if($daocliente->verificarIDDOCliente($cliente->idCliente) != null){
 
         $_SESSION['msg'] = "ID Inválida";
         header('location:../load.html');
         ob_end_flush();
 
-    }else if($daoUsuario->verificarImagemDOUsuario($usuario) != null){
-
-        $_SESSION['msg'] = "Esta Imagem não é Permitida";
-        header('location:../load.html');
-        ob_end_flush();
         
+
+    //}else if($daocliente->verificarImagemDOCliente($cliente) == ""){
+
+    //    $_SESSION['msg'] = "Imagem Repetida";
+    //    header('location:../load.html');
+    //    ob_end_flush();
+
 
     }else{
 
@@ -38,12 +43,12 @@
             mkdir($folder, 0777, true);
             chmod($folder, 0755);
         }
-        $fileToUpload = $folder.$usuario->img;
+        $fileToUpload = $folder.$cliente->img;
 
-        move_uploaded_file($_FILES['imagem']['tmp_name'], $folder.$usuario->img);
-        $daoUsuario->cadastrarUsuario($usuario);
+        move_uploaded_file($_FILES['imagem']['tmp_name'], $folder.$cliente->img);
+        $daocliente->cadastrarCliente($cliente);
 
-        $_SESSION['msg'] = "Usuario Cadastrado";
+        $_SESSION['msg'] = "Cliente Cadastrado";
         header('location:../load.html');
         ob_end_flush();
 

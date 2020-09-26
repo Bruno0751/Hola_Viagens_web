@@ -44,8 +44,8 @@
         <header>
             <a href="index.html"><img src="images/logo.png" alt="Voltar ao Inicio" title="Voltar ao Inicio"></a>
             <ul class="lado">
-                <li><a href="cadastro-de-usuario.html" id="link-cadastro">Cadastrar</a></li>
-                <li><a href="login-de-usuario.php" id="link-login">Login</a></li>
+                <li><a href="cadastro-de-cliente.html" id="link-cadastro">Cadastrar</a></li>
+                <li><a href="login-de-cliente.php" id="link-login">Login</a></li>
             </ul>
         </header>
 
@@ -59,7 +59,7 @@
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="usuarios-cadastrados.php">Buscar Usuários</a></li>
+                        <li><a href="clientes-cadastrados.php">Buscar Usuários</a></li>
                         <li><a href="#">Pagina3</a></li>
                     </ul>
                 </nav>
@@ -90,7 +90,7 @@
 
                     <?php
                         }else{
-                            include "model/usuario.php";
+                            include "model/cliente.php";
                             $user = unserialize($_SESSION['privateUser']);
                             echo "<h2>Olá, seja bem vindo!</h2>";
                         }
@@ -102,7 +102,7 @@
                         </div>
                     </form>
 
-                    <?php
+                    <?php 
                         if(isset($_POST['deslogar'])){
                             unset($_SESSION['privateUser']);
                             $_SESSION['msg'] = "Até Mais";

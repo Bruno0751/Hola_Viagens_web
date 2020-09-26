@@ -29,7 +29,7 @@ th, tr, td{
     padding: 0;
     border-style: solid;
     border-collapse: collapse;
-    width: 0;
+    width: 5%;
     font-size: 1.004em;
 }
 thead, tbody, tfoot{
@@ -147,7 +147,7 @@ fieldset div li{
 .u-photo{
     margin-top: 3pt;
     height: 36pt;
-    width: 12%;
+    width: 58%;
     margin-right: 0;
     margin-left: 0;
 }

@@ -4,10 +4,10 @@
 
     include '../dao/dao-usuario.php';
 
-    $daoUsuario = new DAOUsuario();
-    $daoUsuario->deletarUsuario($_GET['id']);
+    $daoCliente = new DAOCliente();
+    $daoCliente->deletarCliente($_GET['id']);
 
-    $_SESSION['msg'] = "Usuario Excluido";
+    $_SESSION['msg'] = "Cliente Excluido";
 
     header("location:../usuarios-cadastrados.php");
 

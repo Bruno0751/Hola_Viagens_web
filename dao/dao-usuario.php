@@ -1,7 +1,7 @@
 <?php
   require 'conexao.php';
 
-  class DAOUsuario { //DATA ACCESS OBJECT
+  class DAOCliente { //DATA ACCESS OBJECT
 
     private $conexao = null;
 
@@ -11,31 +11,31 @@
 
     public function __destruct(){}
 
-    public function cadastrarUsuario($usuario){
+    public function cadastrarCliente($cliente){
       try{
 
-        $stat = $this->conexao->prepare("INSERT INTO usuario(id_usuario, nomeCompleto, email, lgin, senha, img, data)VALUES(?, ?, ?, ?, ?, ?, ?)");
-        $stat->bindValue(1, $usuario->idUsuario);
-        $stat->bindValue(2, $usuario->nomeCompleto);
-        $stat->bindValue(3, $usuario->email);
-        $stat->bindValue(4, $usuario->login); //CLASSE
-        $stat->bindValue(5, $usuario->senha);
-        $stat->bindValue(6, $usuario->img);
-        $stat->bindValue(7, $usuario->data);
+        $stat = $this->conexao->prepare("INSERT INTO cliente(id_cliente, nomeCompleto, email, lgin, senha, foto, data_de_nascimento)VALUES(?, ?, ?, ?, ?, ?, ?)");
+        $stat->bindValue(1, $cliente->idCliente);
+        $stat->bindValue(2, $cliente->nomeCompleto);
+        $stat->bindValue(3, $cliente->email);
+        $stat->bindValue(4, $cliente->login); //CLASSE
+        $stat->bindValue(5, $cliente->senha);
+        $stat->bindValue(6, $cliente->img);
+        $stat->bindValue(7, $cliente->data);
 
         $stat->execute();
         
       }catch(PDOException $erro){
-        echo "Erro ao Cadastrar Usuario: ".$erro;
+        echo "Erro ao Cadastrar Cliente: ".$erro;
         
       }
     }
 
-    public function buscarUsuarios(){
+    public function buscarCliente(){
       try{
 
-        $stat = $this->conexao->query("SELECT * FROM usuario");
-        $array = $stat->fetchAll(PDO::FETCH_CLASS,"Usuario");
+        $stat = $this->conexao->query("SELECT * FROM cliente");
+        $array = $stat->fetchAll(PDO::FETCH_CLASS,"Cliente");
         return $array;
         
       }catch(PDOException $erro){
@@ -43,72 +43,74 @@
       }
     }
 
-    public function deletarUsuario($id){
+    public function deletarCliente($id){
       try{
-        $stat = $this->conexao->prepare("DELETE FROM usuario WHERE id_usuario = ?");
+        $stat = $this->conexao->prepare("DELETE FROM cliente WHERE id_cliente = ?");
         $stat->bindValue(1,$id);
         $stat->execute();
       }catch(PDOException $erro){
-        echo "Erro ao Deletar Usuario: ".$erro;
+        echo "Erro ao deletar cliente: ".$erro;
       }
     }
     
-    public function verificarUsuario($user){
+    public function verificarLoginCliente($cliente){
       try{
-        $stat = $this->conexao->prepare("SELECT * FROM usuario WHERE lgin = ? AND senha = ?");
+        $stat = $this->conexao->prepare("SELECT * FROM cliente WHERE lgin = ? AND senha = ?");
 
-        $stat->bindValue(1, $user->login);
-        $stat->bindValue(2, $user->senha);
+        $stat->bindValue(1, $cliente->login);
+        $stat->bindValue(2, $cliente->senha);
 
         $stat->execute();
 
-        $usuario = null;
-        $usuario = $stat->fetchObject('Usuario');
-        return $usuario;
+        $cliente = null;
+        $cliente = $stat->fetchObject('Cliente');
+        return $cliente;
       }catch(PDOException $erro){
-        echo "Erro ao Verificar Usuarios: ".$erro;
+        echo "Erro ao Verificar Cliente: ".$erro;
       }
     }
 
-    public function verificarIDDOUsuario($id){
+    public function verificarIDDOCliente($id){
       try{
-        $stat = $this->conexao->prepare("SELECT * FROM usuario WHERE id_usuario = ?");
+        $stat = $this->conexao->prepare("SELECT id_cliente FROM cliente WHERE id_cliente = ?");
 
-        $stat->bindValue(1, $id->idUsuario);
+        $stat->bindValue(1, $id);
 
         $stat->execute();
 
-        $usuario = null;
-        $usuario = $stat->fetchObject('Usuario');
-        return $usuario;
+        $id = null;
+        $id = $stat->fetchALL(PDO::FETCH_CLASS,'Cliente');
+        //$id = $stat->fetchObject('Cliente');
+        return $id;
+
       }catch(PDOException $erro){
-        echo "Erro ao Verificar Usuarios: ".$erro;
+        echo "Erro ao Verificar Cliente: ".$erro;
       }
     }
 
-    public function verificarImagemDOUsuario($image){
+    public function verificarImagemDOCliente($image){
       try{
-        $stat = $this->conexao->prepare("SELECT * FROM usuario WHERE img = ?");
+        $stat = $this->conexao->prepare("SELECT img FROM cliente WHERE img = ?");
 
-        $stat->bindValue(1, $image->img);
+        $stat->bindValue(1, $image);
 
         $stat->execute();
 
-        $usuario = null;
-        $usuario = $stat->fetchObject('Usuario');
-        return $usuario;
+        $image = null;
+        $image = $stat->fetchALL(PDO::FETCH_CLASS,'Cliente');
+        return $image;
       }catch(PDOException $erro){
-        echo "Erro ao Verificar Usuarios: ".$erro;
+        echo "Erro ao Verificar Imagem Cliente: ".$erro;
       }
     }
 
-    public function filtrarUsuario($pesquisa, $filtro){
+    public function filtrarCliente($pesquisa, $filtro){
      try{
        $query = "";
        switch($filtro){
          case "todos" : $query = "";
          break;
-         case "codigo" : $query = "WHERE id_usuario = ".$pesquisa;
+         case "codigo" : $query = "WHERE id_cliente = ".$pesquisa;
          break;
          case "nome" : $query = "WHERE nomeCompleto LIKE '%".$pesquisa."%'";
          break;
@@ -123,28 +125,28 @@
        }
 
        //echo "query: ".$query;
-       $stat = $this->conexao->query("SELECT * FROM usuario {$query}");
-       $array = $stat->fetchAll(PDO::FETCH_CLASS,"Usuario");
+       $stat = $this->conexao->query("SELECT * FROM cliente {$query}");
+       $array = $stat->fetchAll(PDO::FETCH_CLASS,"Cliente");
        return $array;
      }catch(PDOException $erro){
-       echo "Erro ao Filtrar Usuario: ".$erro;
+       echo "Erro ao Filtrar Cliente: ".$erro;
      }
    }
 
-   public function alterarUsuario($usuario){
+   public function alterarCliente($cliente){
     try{
-      $stat = $this->conexao->prepare("UPDATE usuario SET nomeCompleto=?, email=?, lgin=?, senha=?, img=? WHERE id_usuario=?");
+      $stat = $this->conexao->prepare("UPDATE cliente SET nomeCompleto=?, email=?, lgin=?, senha=?, img=? WHERE id_cliente=?");
 
-      $stat->bindValue(1, $usuario->nomeCompleto);
-      $stat->bindValue(2, $usuario->email);
-      $stat->bindValue(3, $usuario->login);
-      $stat->bindValue(4, $usuario->senha);
-      $stat->bindValue(5, $usuario->img);
-      $stat->bindValue(6, $usuario->idUsuario);
+      $stat->bindValue(1, $cliente->nomeCompleto);
+      $stat->bindValue(2, $cliente->email);
+      $stat->bindValue(3, $cliente->login);
+      $stat->bindValue(4, $cliente->senha);
+      $stat->bindValue(5, $cliente->img);
+      $stat->bindValue(6, $cliente->idCliente);
 
       $stat->execute();
     }catch(PDOException $erro){
-      echo "Erro ao Alterar Usuario: ".$erro;
+      echo "Erro ao Alterar Cliente: ".$erro;
     }
    }
  }

@@ -2,12 +2,12 @@
   session_start();
   ob_start();
 
-  include 'model/usuario.php';
+  include 'model/cliente.php';
   include 'dao/dao-usuario.php';
   include 'utl/helper.php';
 
-  $daoUsuario = new DAOUsuario();
-  $array = $daoUsuario->buscarUsuarios();
+  $daoCliente = new DAOCliente();
+  $array = $daoCliente->buscarCliente();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -64,8 +64,8 @@
 
             <ul class="lado">
 
-                <li><a href="cadastro-de-usuario.html" id="link-cadastro">Cadastrar</a></li>
-                <li><a href="login-de-usuario.php" id="link-login">Login</a></li>
+                <li><a href="cadastro-de-cliente.html" id="link-cadastro">Cadastrar</a></li>
+                <li><a href="login-de-cliente.php" id="link-login">Login</a></li>
             
             </ul>
         </header>
@@ -74,7 +74,7 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="usuarios-cadastrados.php">Buscar Usuários</a></li>
+                    <li><a href="clientes-cadastrados.php">Buscar Usuários</a></li>
                     <li><a href="#">Pagina3</a></li>
                 </ul>
             </nav>
@@ -112,8 +112,8 @@
                         $filtro = $_POST['selecionarFiltro'];
 
                         if(!empty($pesquisa)){
-                            $daoUsuario = new DAOUsuario();
-                            $array = $daoUsuario->filtrarUsuario($pesquisa,$filtro);
+                            $daoCliente = new DAOCliente();
+                            $array = $daoCliente->filtrarCliente($pesquisa,$filtro);
                             if(count($array) == 0){
                                 echo "<h2 style='color: #FF4500; text-align: center; font-size: 30px;'>Pesquisa Não Encontrada</h2>
                                 <br>
@@ -146,17 +146,19 @@
                         <?php
                             foreach($array as $linhas){
                                 echo "<tr>";
-                                    echo "<td>$linhas->id_usuario</td>";
+                                    echo "<td>$linhas->id_cliente</td>";
                                     echo "<td>$linhas->nomeCompleto</td>";
                                     echo "<td>$linhas->email</td>";
                                     echo "<td>$linhas->lgin</td>";
                                     echo "<td>$linhas->senha</td>";
-                                    echo "<td><a href='files/$linhas->img' data-lightbox='mygallery'><img src='files/$linhas->img' alt='Minha Foto' class='u-photo'></a></td>";
-                                    echo "<td>$linhas->data</td>";
-                                    echo "<td><a href='control/control-excluir-usuario.php?id=$linhas->id_usuario'>Excluir</a></td>";
-                                    echo "<td><a href='alterar-usuario.php?id=$linhas->id_usuario'>Alterar</a></td>";
+                                    echo "<td><a href='files/$linhas->foto' data-lightbox='mygallery'><img src='files/$linhas->foto' alt='Minha Foto' class='u-photo'></a></td>";
+                                    echo "<td>$linhas->data_de_nascimento</td>";
+                                    echo "<td><a href='control/control-excluir-usuario.php?id=$linhas->id_cliente'>Excluir</a></td>";
+                                    echo "<td><a href='alterar-cliente.php?id=$linhas->id_cliente'>Alterar</a></td>";
                                 echo "</tr>";
                             }
+                            $cliente = new Cliente();
+                            echo $cliente->img;
                         ?>
 
                     </tbody>
