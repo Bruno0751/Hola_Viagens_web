@@ -12,13 +12,16 @@ fieldset{
     border-radius: 1em;
     text-align: center;
 }
+#field-search{
+    margin-bottom: 26pt;
+}
 table{
     border-style: solid;
     border-collapse: collapse;
     padding: 0;
     text-align: center;
     margin: 0 auto;
-    width: 97%;
+    width: 82%;
     font-size: 1.004em;
     background-color: #ffffff;
 }
@@ -115,6 +118,9 @@ section nav ul li a{
     text-align: center;
     width: 15%;
 }
+.input-date{
+    border-radius: 11px;
+}
 #margem-top{
     margin-top: 91pt;
 }
@@ -140,8 +146,8 @@ fieldset div li{
 }
 .u-photo{
     margin-top: 3pt;
-    height: 171pt;
-    width: 41%;
+    height: 36pt;
+    width: 12%;
     margin-right: 0;
     margin-left: 0;
 }

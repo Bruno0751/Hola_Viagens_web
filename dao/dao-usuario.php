@@ -14,13 +14,14 @@
     public function cadastrarUsuario($usuario){
       try{
 
-        $stat = $this->conexao->prepare("INSERT INTO usuario(id_usuario, nomeCompleto, email, lgin, senha, img)VALUES(?, ?, ?, ?, ?, ?)");
+        $stat = $this->conexao->prepare("INSERT INTO usuario(id_usuario, nomeCompleto, email, lgin, senha, img, data)VALUES(?, ?, ?, ?, ?, ?, ?)");
         $stat->bindValue(1, $usuario->idUsuario);
         $stat->bindValue(2, $usuario->nomeCompleto);
         $stat->bindValue(3, $usuario->email);
         $stat->bindValue(4, $usuario->login); //CLASSE
         $stat->bindValue(5, $usuario->senha);
         $stat->bindValue(6, $usuario->img);
+        $stat->bindValue(7, $usuario->data);
 
         $stat->execute();
         

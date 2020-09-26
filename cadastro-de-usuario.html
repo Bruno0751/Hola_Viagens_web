@@ -53,18 +53,27 @@
                 <h3>*Campos Obrigatórios</h3>
                 <form method="post" action="control/control-cadastro-de-usuario.php" enctype="multipart/form-data">
 
-                    <input type="text" placeholder="ID" class="cadastrar-input-margem" name="textID">
-                    <input type="text" placeholder="Nome Completo" class="cadastrar-input-margem" name="textNomeCompleto">
-                    <input type="text" placeholder="Email" class="cadastrar-input-margem" name="emMail">
-                    <input type="text" placeholder="Login" class="cadastrar-input-margem" name="textLogin">
-                    <input type="password" placeholder="Senha" class="cadastrar-input-margem" name="passSenha">
-                    <input type="file" value="Foto" name="imagem" id="imagem">
+                    <input type="text" placeholder="* ID" class="cadastrar-input-margem" name="textID">
+
+                    <input type="text" placeholder="* Nome Completo" class="cadastrar-input-margem" name="textNomeCompleto">
+
+                    <input type="text" placeholder="* Email" class="cadastrar-input-margem" name="emMail">
+
+                    <input type="text" placeholder="* Login" class="cadastrar-input-margem" name="textLogin">
+
+                    <input type="password" placeholder="* Senha" class="cadastrar-input-margem" name="passSenha">
+
+                    <label>Sua Foto:</label>
+                    <input type="file" name="imagem">
+
+                    <label>Data de Nascime</label>
+                    <input type="date" name="dateData" class="input-date">
 
                     <div class="bt-cadastrar-bt-limpar">
-                        <li>
-                            <input type="submit" value="Cadasstrar" class="cadastrar-entrar-bt-margem-tb">
-                            <input type="reset" value="Limpar Campos" class="limpar-deslogar-bt-margem-tb">
-                        </li>
+
+                        <input type="submit" value="Cadasstrar" class="cadastrar-entrar-bt-margem-tb">
+                        <input type="reset" value="Limpar Campos" class="limpar-deslogar-bt-margem-tb">
+
                     </div>
 
                 </form>

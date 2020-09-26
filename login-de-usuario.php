@@ -90,10 +90,10 @@
 
                     <?php
                         }else{
-                            include_once "model/usuario.php";
-                            $u = unserialize($_SESSION['privateUser']);
-                            echo "<h2>Olá{$u->nomeCompleto}, seja bem vindo!</h2>";
-                        
+                            include "model/usuario.php";
+                            $user = unserialize($_SESSION['privateUser']);
+                            echo "<h2>Olá, seja bem vindo!</h2>";
+                        }
                     ?>
                     
                     <form method="post" action="#">
@@ -108,7 +108,7 @@
                             $_SESSION['msg'] = "Até Mais";
                             header("location:usuarios-cadastrados.php");
                         }
-                    }
+
                     ?>
                     
                 </fieldset>

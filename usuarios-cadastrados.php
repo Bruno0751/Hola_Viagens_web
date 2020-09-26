@@ -86,7 +86,7 @@
                 }
             ?>
             
-            <fieldset>
+            <fieldset id="field-search">
                 <legend style="text-align: center;">Digite Sua Pesquisa</legend>
 
                 <form method="post" action="#">
@@ -137,6 +137,7 @@
                             <th>Login</th>
                             <th>Senha</th>
                             <th>Imagem</th>
+                            <th>Data</th>
                             <th>Excluir</th>
                             <th>Alterar</th>
                         </tr>
@@ -151,6 +152,7 @@
                                     echo "<td>$linhas->lgin</td>";
                                     echo "<td>$linhas->senha</td>";
                                     echo "<td><a href='files/$linhas->img' data-lightbox='mygallery'><img src='files/$linhas->img' alt='Minha Foto' class='u-photo'></a></td>";
+                                    echo "<td>$linhas->data</td>";
                                     echo "<td><a href='control/control-excluir-usuario.php?id=$linhas->id_usuario'>Excluir</a></td>";
                                     echo "<td><a href='alterar-usuario.php?id=$linhas->id_usuario'>Alterar</a></td>";
                                 echo "</tr>";
@@ -166,6 +168,7 @@
                             <th>Login</th>
                             <th>Senha</th>
                             <th>Imagem</th>
+                            <th>Data</th>
                             <th>Excluir</th>
                             <th>Alterar</th>
                         </tr>

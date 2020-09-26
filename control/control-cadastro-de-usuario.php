@@ -15,6 +15,7 @@
     $usuario->login = Validacao::antiXSS($_POST['textLogin']);
     $usuario->senha = Validacao::antiXSS(Padronizacao::criptografarSenhas($_POST['passSenha']));
     $usuario->img = $_FILES["imagem"]["name"];
+    $usuario->data = $_POST['dateData'];
     
     $daoUsuario = new DAOUsuario();
     if($daoUsuario->verificarIDDOUsuario($usuario) != null){

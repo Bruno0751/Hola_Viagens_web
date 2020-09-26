@@ -7,6 +7,7 @@
     private $login;
     private $senha;
     private $img;
+    private $data;
     
 
     public function __construct(){}
@@ -26,6 +27,7 @@
                     Email: $this->email
                     Login: $this->login
                     Senha: $this->senha
-                    Imagem: $this->img");
+                    Imagem: $this->img
+                    Data: $this->data");
     }
   }
