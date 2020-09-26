@@ -150,7 +150,7 @@
                                     echo "<td>$linhas->email</td>";
                                     echo "<td>$linhas->lgin</td>";
                                     echo "<td>$linhas->senha</td>";
-                                    echo "<td><a href='files/$linhas->img' data-lightbox='mygallery'>Minha Imagem</a></td>";
+                                    echo "<td><a href='files/$linhas->img' data-lightbox='mygallery'><img src='files/$linhas->img' alt='Minha Foto' class='u-photo'></a></td>";
                                     echo "<td><a href='control/control-excluir-usuario.php?id=$linhas->id_usuario'>Excluir</a></td>";
                                     echo "<td><a href='alterar-usuario.php?id=$linhas->id_usuario'>Alterar</a></td>";
                                 echo "</tr>";

@@ -12,17 +12,25 @@ fieldset{
     border-radius: 1em;
     text-align: center;
 }
-table,th,tr,td{
-    border-color: #000000;
-    border-width: 0.2em;
+table{
     border-style: solid;
     border-collapse: collapse;
+    padding: 0;
     text-align: center;
     margin: 0 auto;
-    width: auto;
-    
+    width: 97%;
+    font-size: 1.004em;
     background-color: #ffffff;
-    font-size: 20pt;
+}
+th, tr, td{
+    padding: 0;
+    border-style: solid;
+    border-collapse: collapse;
+    width: 0;
+    font-size: 1.004em;
+}
+thead, tbody, tfoot{
+    width: auto;
 }
 header{
     padding: 5pt 2%;
@@ -129,6 +137,13 @@ fieldset div li{
 }
 #vazio{
     text-align: center;
+}
+.u-photo{
+    margin-top: 3pt;
+    height: 171pt;
+    width: 41%;
+    margin-right: 0;
+    margin-left: 0;
 }
 /*desktop com monitores wide screen*/
 @media screen and (max-width: 1200px){
