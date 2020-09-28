@@ -14,7 +14,7 @@
     public function cadastrarCliente($cliente){
       try{
 
-        $stat = $this->conexao->prepare("INSERT INTO cliente(id_cliente, nomeCompleto, email, lgin, senha, foto, data_de_nascimento)VALUES(?, ?, ?, ?, ?, ?, ?)");
+        $stat = $this->conexao->prepare("INSERT INTO cliente(id_cliente, nome_completo, email, lgin, senha, foto, data_de_nascimento)VALUES(?, ?, ?, ?, ?, ?, ?)");
         $stat->bindValue(1, $cliente->idCliente);
         $stat->bindValue(2, $cliente->nomeCompleto);
         $stat->bindValue(3, $cliente->email);
@@ -112,7 +112,7 @@
          break;
          case "codigo" : $query = "WHERE id_cliente = ".$pesquisa;
          break;
-         case "nome" : $query = "WHERE nomeCompleto LIKE '%".$pesquisa."%'";
+         case "nome" : $query = "WHERE nome_completo LIKE '%".$pesquisa."%'";
          break;
          case "email" : $query = "WHERE email LIKE '%".$pesquisa."%'";
          break;
@@ -135,7 +135,7 @@
 
    public function alterarCliente($cliente){
     try{
-      $stat = $this->conexao->prepare("UPDATE cliente SET nomeCompleto=?, email=?, lgin=? WHERE id_cliente=?");
+      $stat = $this->conexao->prepare("UPDATE cliente SET nome_completo=?, email=?, lgin=? WHERE id_cliente=?");
 
       $stat->bindValue(1, $cliente->nomeCompleto);
       $stat->bindValue(2, $cliente->email);

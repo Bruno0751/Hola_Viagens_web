@@ -2,23 +2,22 @@
     session_start();
     ob_start();
 
-    include '../model/usuario.php';
-    include '../dao/dao-usuario.php';
-    //include 'utl/padronizacao.php';
+    require '../model/cliente.php';
+        require '../dao/dao-usuario.php';
+        require '../utl/helper.php';
+        //include 'util/padronizacao.php';
 
-    $usuario = new Usuario();
+        $cliente = new Cliente();
 
-    $usuario->idUsuario = $_POST['id'];
-    $usuario->nomeCompleto = $_POST['textNomeCompleto'];
-    $usuario->email = $_POST['email'];
-    $usuario->login = $_POST['textLogin'];
-    $usuario->senha = $_POST['passSenha'];
+        $cliente->idCliente = $_GET['id'];
+        $cliente->nomeCompleto = $_POST['textNomeCompleto'];
+        $cliente->email = $_POST['email'];
+        $cliente->login = $_POST['textLogin'];
 
-    
-    $daoUsuario = new DAOUsuario();
-    $daoUsuario->alterarUsuario($usuario);
-    echo $usuario;
-    $_SESSION['msg'] = "Usuario Alterado";
-    //header("location:../usuarios-cadastrados.php");
+        $daoCliente = new DAOCliente();
+        $daoCliente->alterarCliente($cliente);
 
-    //ob_end_flush();
+        $_SESSION['msg'] = "Cliente Alterado";
+        header("location:../clientes-cadastrados.php");
+
+        ob_end_flush();

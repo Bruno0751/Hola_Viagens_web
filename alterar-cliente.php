@@ -74,15 +74,11 @@
 
                 <form method="post" action="#">
 
-                    <input type="text" class="cadastrar-input-margem" name="textNomeCompleto" value="<?php if(isset($cliente)){echo $cliente->nomeCompleto;}?>">
-                    <input type="email" class="cadastrar-input-margem" name="email" value="<?php if(isset($cliente)){echo $cliente->email;}?>">
-                    <input type="text" class="cadastrar-input-margem" name="textLogin" value="<?php if(isset($cliente)){echo $cliente->lgin;}?>">
+                    <input type="text" class="cadastrar-input-margem" name="textNomeCompleto" value="<?php if(isset($cliente)){ echo $cliente->nome_completo;} ?>">
 
-                    <!--
-                        <input type="text"  class="cadastrar-input-margem" name="passSenha" value="<?php //if(isset($cliente)){echo $cliente->senha;}?>">
-                        <input type="file" value="Foto" name="fileIMG" name="fileIMG" value="<?php //if(isset($cliente)){echo $cliente->img;}?>">
-                    -->
-                    
+                    <input type="email" class="cadastrar-input-margem" name="email" value="<?php if(isset($cliente)){ echo $cliente->email;} ?>">
+
+                    <input type="text" class="cadastrar-input-margem" name="textLogin" value="<?php if(isset($cliente)){ echo $cliente->lgin;} ?>">                  
 
                     <div class="bt-cadastrar-bt-limpar">
                         <li>
@@ -99,19 +95,16 @@
         </footer>
         <?php
             if(isset($_POST['alterar'])){
+                include_once 'dao/dao-usuario.php';
 
-                include 'dao/dao-usuario.php';
-                include 'utl/helper.php';
                 //include 'util/padronizacao.php';
 
                 $cliente = new Cliente();
 
                 $cliente->idCliente = $_GET['id'];
                 $cliente->nomeCompleto = $_POST['textNomeCompleto'];
-                $cliente->email = Validacao::antiXSS($_POST['email']);
-                $cliente->login = Validacao::antiXSS($_POST['textLogin']);
-                //$cliente->senha = Validacao::antiXSS($_POST['passSenha']);
-                //$cliente->img = Validacao::antiXSS($_POST['fileIMG']);
+                $cliente->email = $_POST['email'];
+                $cliente->login = $_POST['textLogin'];
 
                 $daoCliente = new DAOCliente();
                 $daoCliente->alterarCliente($cliente);
@@ -121,6 +114,6 @@
 
                 ob_end_flush();
             }
-        ?>
+            ?>
     </body>
 </html>

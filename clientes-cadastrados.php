@@ -147,14 +147,14 @@
                             foreach($array as $linhas){
                                 echo "<tr>";
                                     echo "<td>$linhas->id_cliente</td>";
-                                    echo "<td>$linhas->nomeCompleto</td>";
+                                    echo "<td>$linhas->nome_completo</td>";
                                     echo "<td>$linhas->email</td>";
                                     echo "<td>$linhas->lgin</td>";
                                     echo "<td>$linhas->senha</td>";
                                     echo "<td><a href='files/$linhas->foto' data-lightbox='mygallery'><img src='files/$linhas->foto' alt='Minha Foto' class='u-photo'></a></td>";
                                     echo "<td>$linhas->data_de_nascimento</td>";
                                     echo "<td><a href='control/control-excluir-cliente.php?id=$linhas->id_cliente'>Excluir</a></td>";
-                                    echo "<td><a href='#' onClick='informando()'>Alterar</a></td>";
+                                    echo "<td><a href='alterar-cliente.php?id=$linhas->id_cliente'>Alterar</a></td>";
                                 echo "</tr>";
                             }
                         ?>
