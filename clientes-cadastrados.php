@@ -38,9 +38,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
-        <script src="js/script.js"></script>
         <script src="js/lightbox-plus-jquery.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        
     </head>
     <body>
         <time datetime="2012-02-15"></time>
@@ -153,12 +153,10 @@
                                     echo "<td>$linhas->senha</td>";
                                     echo "<td><a href='files/$linhas->foto' data-lightbox='mygallery'><img src='files/$linhas->foto' alt='Minha Foto' class='u-photo'></a></td>";
                                     echo "<td>$linhas->data_de_nascimento</td>";
-                                    echo "<td><a href='control/control-excluir-usuario.php?id=$linhas->id_cliente'>Excluir</a></td>";
-                                    echo "<td><a href='alterar-cliente.php?id=$linhas->id_cliente'>Alterar</a></td>";
+                                    echo "<td><a href='control/control-excluir-cliente.php?id=$linhas->id_cliente'>Excluir</a></td>";
+                                    echo "<td><a href='#' onClick='informando()'>Alterar</a></td>";
                                 echo "</tr>";
                             }
-                            $cliente = new Cliente();
-                            echo $cliente->img;
                         ?>
 
                     </tbody>

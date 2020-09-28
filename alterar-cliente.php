@@ -42,7 +42,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
         <script src="js/script.js"></script>
     </head>
     <body>
@@ -73,7 +72,7 @@
             <fieldset>
                 <legend>Alterar Usuário</legend>
 
-                <form method="post" action="control/control-alteracao-de-usuario.php">
+                <form method="post" action="#">
 
                     <input type="text" class="cadastrar-input-margem" name="textNomeCompleto" value="<?php if(isset($cliente)){echo $cliente->nomeCompleto;}?>">
                     <input type="email" class="cadastrar-input-margem" name="email" value="<?php if(isset($cliente)){echo $cliente->email;}?>">
@@ -100,25 +99,25 @@
         </footer>
         <?php
             if(isset($_POST['alterar'])){
-                include 'model/cliente.php';
+
                 include 'dao/dao-usuario.php';
                 include 'utl/helper.php';
                 //include 'util/padronizacao.php';
 
-                $cliente = new Usuario();
+                $cliente = new Cliente();
 
                 $cliente->idCliente = $_GET['id'];
-                $cliente->nomeCompleto = Validacao::antiXSS($_POST['textNomeCompleto']);
+                $cliente->nomeCompleto = $_POST['textNomeCompleto'];
                 $cliente->email = Validacao::antiXSS($_POST['email']);
                 $cliente->login = Validacao::antiXSS($_POST['textLogin']);
                 //$cliente->senha = Validacao::antiXSS($_POST['passSenha']);
                 //$cliente->img = Validacao::antiXSS($_POST['fileIMG']);
 
                 $daoCliente = new DAOCliente();
-                $daoCliente->alterarUsuario($cliente);
+                $daoCliente->alterarCliente($cliente);
 
                 $_SESSION['msg'] = "Cliente Alterado";
-                header("location:usuarios-cadastrados.php");
+                header("location:clientes-cadastrados.php");
 
                 ob_end_flush();
             }

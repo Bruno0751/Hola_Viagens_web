@@ -14,7 +14,7 @@
         }
         return self::$inst;
       }catch(PDOException $erro){
-        echo "<script>window.alert('Erro ao Conectar');</script>".nl2br($erro);
+        echo "<script>window.alert('Erro ao Conectar');</script>" .$erro;
       }
     }
   }

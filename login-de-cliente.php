@@ -30,7 +30,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
         <script src="js/script.js"></script>
     </head>
     <body>
@@ -77,7 +76,7 @@
                 ?>
 
                     <legend>Login</legend>
-                    <form method="post" action="control/control-verificacao-de-usuiario.php">
+                    <form method="post" action="control/control-verificacao-de-cliente.php">
 
                         <input type="text" placeholder="Login" class="cadastrar-input-margem" name="textLogin">
                         <input type="password" placeholder="Senha" class="cadastrar-input-margem" name="passSenha">       
@@ -96,20 +95,13 @@
                         }
                     ?>
                     
-                    <form method="post" action="#">
+                    <form method="post" action="control/control-deslogar-cliente.php">
                         <div class="form-group">
                             <input type="submit" name="deslogar" value="Sair">
                         </div>
                     </form>
 
-                    <?php 
-                        if(isset($_POST['deslogar'])){
-                            unset($_SESSION['privateUser']);
-                            $_SESSION['msg'] = "Até Mais";
-                            header("location:usuarios-cadastrados.php");
-                        }
-
-                    ?>
+                    
                     
                 </fieldset>
             </div>         

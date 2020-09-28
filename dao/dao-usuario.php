@@ -135,14 +135,12 @@
 
    public function alterarCliente($cliente){
     try{
-      $stat = $this->conexao->prepare("UPDATE cliente SET nomeCompleto=?, email=?, lgin=?, senha=?, img=? WHERE id_cliente=?");
+      $stat = $this->conexao->prepare("UPDATE cliente SET nomeCompleto=?, email=?, lgin=? WHERE id_cliente=?");
 
       $stat->bindValue(1, $cliente->nomeCompleto);
       $stat->bindValue(2, $cliente->email);
       $stat->bindValue(3, $cliente->login);
-      $stat->bindValue(4, $cliente->senha);
-      $stat->bindValue(5, $cliente->img);
-      $stat->bindValue(6, $cliente->idCliente);
+      $stat->bindValue(4, $cliente->idCliente);
 
       $stat->execute();
     }catch(PDOException $erro){
