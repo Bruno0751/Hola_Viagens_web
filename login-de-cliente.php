@@ -59,7 +59,7 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="clientes-cadastrados.php">Buscar Usuários</a></li>
-                        <li><a href="#">Pagina 3</a></li>
+                        <li><a href="cadastro-de-venda.html">Cadastro de Vendas</a></li>
                         <li><a href="#">Pagina 4</a></li>
                     </ul>
                 </nav>

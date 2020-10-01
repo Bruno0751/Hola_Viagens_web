@@ -3,7 +3,7 @@
     ob_start();
 
     require_once '../model/cliente.php';
-    require_once '../dao/dao-usuario.php';
+    require_once '../dao/dao-cliente.php';
     include '../utl/validacao.php';
                 
     $c = new Cliente();

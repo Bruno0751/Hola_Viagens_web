@@ -2,7 +2,7 @@
     ob_start();
     session_start();
 
-    include '../dao/dao-usuario.php';
+    include '../dao/dao-cliente.php';
 
     $daoCliente = new DAOCliente();
     $daoCliente->deletarCliente($_GET['id']);

@@ -1,8 +1,8 @@
 
 
-CREATE DATABASE hola_viajens;
+CREATE DATABASE hola_viagens;
 
-USE hola_viajens;
+USE hola_viagens;
 
 CREATE TABLE cliente (
     id_cliente VARCHAR(13) CHARACTER SET UTF8 COLLATE UTF8_UNICODE_CI NOT NULL,

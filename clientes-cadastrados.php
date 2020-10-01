@@ -3,7 +3,7 @@
   ob_start();
 
   include 'model/cliente.php';
-  include 'dao/dao-usuario.php';
+  include 'dao/dao-cliente.php';
   include 'utl/helper.php';
 
   $daoCliente = new DAOCliente();
@@ -55,10 +55,6 @@
         <header>
             <a href="index.html"><img src="images/logo.png" alt="Voltar ao Inicio" title="Voltar ao Inicio"></a>
 
-            <!--
-                trecho PHP
-            -->
-
             <ul class="lado">
 
                 <li><a href="cadastro-de-cliente.html" id="link-cadastro">Cadastrar</a></li>
@@ -72,14 +68,14 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="clientes-cadastrados.php">Buscar Usuários</a></li>
-                    <li><a href="#">Pagina 3</a></li>
+                    <li><a href="cadastro-de-venda.html">Cadastro de Vendas</a></li>
                     <li><a href="#">Pagina 4</a></li>
                 </ul>
             </nav>
 
             <?php
                 if(count($array) == 0){
-                    echo "<h1 id='vaziio'>Não Há Clientes Cadastrados</h1>";
+                    echo "<h1 id='vazio'>Não Há Clientes Cadastrados</h1>";
                     return;
                 }
             ?>
@@ -96,7 +92,6 @@
                         <option value="email">Email</option>
                         <option value="nome">Nome</option>
                         <option value="login">Login</option>
-                        <option value="senha">Senha</option>
                     </select>
                     <div>
                         <input type="submit" value="Procurar" name="filtrar" class="entradas-de-filtro" style="width: 99%;">
@@ -133,7 +128,6 @@
                             <th>Nome</th>
                             <th>Email</th>
                             <th>Login</th>
-                            <th>Senha</th>
                             <th>Imagem</th>
                             <th>Data</th>
                             <th>Excluir</th>
@@ -142,16 +136,14 @@
                     </thead>
                     <tbody>
                         <?php
-                        include_once 'model/cliente.php';
-                        $cliente = new Cliente();
+                            include_once 'model/cliente.php';
+                            $cliente = new Cliente();
                             foreach($array as $linhas){
                                 echo "<tr>";
                                     echo "<td>$linhas->id_cliente</td>";
                                     echo "<td>$linhas->nome_completo</td>";
                                     echo "<td>$linhas->email</td>";
                                     echo "<td>$linhas->lgin</td>";
-                                    echo "<td>$linhas->senha</td>";
-
                                     echo "<td ><a href='files/$linhas->foto' data-lightbox='mygallery'><img src='files/$linhas->foto' alt='Minha Foto' class='u-photo'></a></td>";
              
                                     echo "<td>$linhas->data_de_nascimento</td>";
@@ -168,7 +160,6 @@
                             <th>Email</th>
                             <th>Nome</th>
                             <th>Login</th>
-                            <th>Senha</th>
                             <th>Imagem</th>
                             <th>Data</th>
                             <th>Excluir</th>

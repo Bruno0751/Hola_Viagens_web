@@ -2,7 +2,7 @@
     session_start();
     ob_start();
 
-    include '../dao/dao-usuario.php';
+    include '../dao/dao-cliente.php';
     include '../model/cliente.php';
     include '../utl/padronizacao.php';
     include '../utl/validacao.php';
