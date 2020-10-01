@@ -84,13 +84,13 @@
         return $id;
 
       }catch(PDOException $erro){
-        echo "Erro ao Verificar Cliente: ".$erro;
+        echo "Erro ao Verificar ID Cliente: ".$erro;
       }
     }
 
     public function verificarImagemDOCliente($image){
       try{
-        $stat = $this->conexao->prepare("SELECT img FROM cliente WHERE img = ?");
+        $stat = $this->conexao->prepare("SELECT foto FROM cliente WHERE foto = ?");
 
         $stat->bindValue(1, $image);
 
@@ -99,6 +99,7 @@
         $image = null;
         $image = $stat->fetchALL(PDO::FETCH_CLASS,'Cliente');
         return $image;
+
       }catch(PDOException $erro){
         echo "Erro ao Verificar Imagem Cliente: ".$erro;
       }

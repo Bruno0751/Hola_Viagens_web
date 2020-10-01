@@ -74,17 +74,16 @@ ul.lado{
     margin-left: 12%;
     margin-right: 0;
 }
-
 section nav ul{
-    margin: 41pt 1% 57pt 1%;
-    padding: 18pt 1% 18pt 16%;
+    margin: 41pt 1%;
+    text-align: center;
     border-radius: 22pt;
     background-color: #aed5da52;
     list-style-type: none;
 }
 section nav li{
     display: inline;
-    margin: 0 9%;
+    margin: 0 5%;
 }
 section nav ul li a{
     font-size: 25pt;

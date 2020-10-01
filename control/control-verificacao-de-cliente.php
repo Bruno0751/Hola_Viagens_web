@@ -21,6 +21,6 @@
     }else{
         $_SESSION['privateUser'] = serialize($cliente);
 
-        header("location:../login-de-cliente.php");
+        header("location:../load-login-de-cliente.html");
 
     }

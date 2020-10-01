@@ -17,24 +17,31 @@
     $cliente->img = $_FILES["imagem"]["name"];
     $cliente->data = $_POST['dateData'];
     
-    $daocliente = new DAOCliente();
+    $daoCliente = new DAOCliente();
 
     //$verificarIDCliente =
 
-    if($daocliente->verificarIDDOCliente($cliente->idCliente) != null){
+    if($daoCliente->verificarIDDOCliente($cliente->idCliente) != null){
 
         $_SESSION['msg'] = "ID Inválida";
-        header('location:../load.html');
+        header('location:../load-cadastro-de-cliente.html');
         ob_end_flush();
 
         
 
-    //}else if($daocliente->verificarImagemDOCliente($cliente) == ""){
+    }else if($cliente->img == null){
 
-    //    $_SESSION['msg'] = "Imagem Repetida";
-    //    header('location:../load.html');
-    //    ob_end_flush();
+        $cliente->img = "Sem Foto";
+        $daoCliente->cadastrarCliente($cliente);
+        $_SESSION['msg'] = "Cliente Cadastrado";
+        header('location:../load-cadastro-de-cliente.html');
+        ob_end_flush();
 
+    }else if($daoCliente->verificarImagemDOCliente($cliente->img) != null){
+
+        $_SESSION['msg'] = "Imagem Inválida";
+        header('location:../load-cadastro-de-cliente.html');
+        ob_end_flush();
 
     }else{
 
@@ -44,12 +51,11 @@
             chmod($folder, 0755);
         }
         $fileToUpload = $folder.$cliente->img;
-
         move_uploaded_file($_FILES['imagem']['tmp_name'], $folder.$cliente->img);
-        $daocliente->cadastrarCliente($cliente);
 
+        $daoCliente->cadastrarCliente($cliente);
         $_SESSION['msg'] = "Cliente Cadastrado";
-        header('location:../load.html');
+        header('location:../load-cadastro-de-cliente.html');
         ob_end_flush();
 
     }
