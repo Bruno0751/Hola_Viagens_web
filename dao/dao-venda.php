@@ -50,7 +50,6 @@
       }
     }
     
-
     public function verificarIDDAVenda($id){
       try{
         $stat = $this->conexao->prepare("SELECT id_venda FROM venda WHERE id_venda = ?");
@@ -61,7 +60,7 @@
 
         $id = null;
         $id = $stat->fetchALL(PDO::FETCH_CLASS,'Venda');
-        //$id = $stat->fetchObject('Cliente');
+
         return $id;
 
       }catch(PDOException $erro){
@@ -69,6 +68,20 @@
       }
     }
 
+    public function verificarIDClienteFK($fk){
+            try{
+                $stat = $this->conexao->prepare("SELECT id_cliente FROM cliente WHERE id_cliente = ?");
+                $stat->bindValue(1, $fk);
+                $stat->execute();
+        
+                $fk = null;
+                $fk = $stat->fetchObject('Venda');
+
+                return $fk;
+            }catch(PDOException $erro){
+                echo "Erro ao Verificar FK" . $erro;
+            }
+        }
 
     public function filtrarVenda($pesquisa, $filtro){
      try{

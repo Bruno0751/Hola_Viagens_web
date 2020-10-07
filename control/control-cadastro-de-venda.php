@@ -24,11 +24,11 @@
 
         
 
-    //}else if($daoVenda->verificarIDDOCliente($venda->cliente) != null){
+    }else if($daoVenda->verificarIDClienteFK($venda->cliente) == null){
 
-    //    $_SESSION['msg'] = "Imagem Inválida";
-    //    header('location:../load-cadastro-de-venda.html');
-    //    ob_end_flush();
+        $_SESSION['msg'] = "ID do Cliente Inválida/Cliente não Existe";
+        header('location:../load-cadastro-de-venda.html');
+        ob_end_flush();
 
     }else{
 
