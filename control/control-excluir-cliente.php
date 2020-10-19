@@ -9,6 +9,6 @@
 
     $_SESSION['msg'] = "Cliente Excluido";
 
-    header("location:../clientes-cadastrados.php");
+    header("location:../load-cadastro-de-cliente.html");
 
     ob_end_flush();

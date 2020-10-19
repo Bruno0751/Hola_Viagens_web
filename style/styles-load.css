@@ -52,3 +52,7 @@ body{
     background: #240229;
     border-radius: 50%;
   }
+  progress{
+    width: 96%;
+    height: 60px;
+}

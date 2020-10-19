@@ -14,9 +14,9 @@
     $clienteDAO = new DAOCliente();
     $cliente = $clienteDAO->verificarLoginCliente($c);
 
-    if($cliente != null){
+    if($cliente == null){
         $_SESSION['msg'] = "Cliente Inválido";
-        header("location:../login-de-usuario.php.");
+        header("location:../login-de-cliente.php");
 
     }else{
         $_SESSION['privateUser'] = serialize($cliente);

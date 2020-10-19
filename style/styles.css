@@ -1,7 +1,36 @@
 body{
-    background-color: #bfd4f7;
+    background-color: #e4ebf5;
     margin: 0;
     width: 100%;
+}
+header{
+    background-color: #0000009e;
+    height: 35pt;
+    top: 0;
+    position: relative;
+    width: 100%;
+}
+header a img{
+    height: 29pt;
+    width: 18%;
+    margin-top: 7px;
+    margin-left: 1%;
+}
+header ul{
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    float: right;
+}
+header li{
+    list-style-type: none;
+    display: inline;
+    margin: 0 2.1%;
+}
+header a{
+    text-decoration: none;
+    color: #55ddffff;
+    font-size: 2em;
 }
 legend{
     font-size: 2em;
@@ -35,43 +64,12 @@ th, tr, td{
 thead, tbody, tfoot{
     width: auto;
 }
-header{
-    padding: 5pt 2%;
-    background-color: #0000009e;
-    height: 34pt;
-}
 nav{
     width: 100%;
-}
-header a img{
-    margin: 0;
-    height: 29pt;
-    width: 18%;
-    float: left;
-}
-header a{
-    text-decoration: none;
-    color: #55ddffff;
-    font-size: 25pt;
-    margin: 0;
-}
-header li{
-    list-style-type: none;
-    display: inline;
-}
-ul.lado{
-    margin: 0;
-    padding: 0;
-    float: right;
-    height: auto;
-    width: 18%;
+    margin-top: 103px;
 }
 #link-cadastro{
     margin-left: 0;
-    margin-right: 0;
-}
-#link-login{
-    margin-left: 12%;
     margin-right: 0;
 }
 section nav ul{
@@ -150,82 +148,36 @@ fieldset div li{
     margin-right: 0;
     margin-left: 0;
 }
+footer{
+    background-color: #000000;
+    height: 34pt;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+.footer_index{
+    height: 34pt;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+    margin-top: 69px;
+}
 /*desktop com monitores wide screen*/
 @media screen and (max-width: 1200px){
-    ul.lado{
-        width: 21%;
-    }
+
 }
 /*tablets no formato paisagem e alguns monitores mais antigos*/
 @media screen and (max-width: 960px){
-    ul.lado{
-        width: 31%;
-    }
+
 }
 /*tablets no formato retrato*/
 @media screen and (max-width: 768px){
-    ul.lado{
-        width: 33%;
-    }
-    header a img{
-        height: 29pt;
-        width: 28%;
-        float: left;
-    }
-    section nav li{
-        margin: 0 6%;
-    }
+
 }
 /*smartphone no paisagem*/
 @media screen and (max-width: 480px){
-    header a img{
-        height: 29pt;
-        width: 37%;
-        float: left;
-    }
-	ul.lado{
-        float: right;
-        height: auto;
-        width: 50%;
-    }
-    section nav li{
-        margin: 0 4%;
-    }
-    section nav ul{
-        padding: 0;
 
-    }
 }
 @media screen and (max-width: 360px){
-	header{
-        padding: 5pt 2%;
-        background-color: #0000009e;
-        height: 136pt;
-    }
-	header a img{
-        width: 60%;
-        margin: 1pt 20%;
-        
-    }
-    ul.lado{
-        clear: both;
-        float: none;
-        margin: 0 auto;
-        width: auto;
-        margin-top: 48pt;
-        margin-bottom: 10pt;
-    }
-    header li{
-        text-align: center;
-        display: block;
-        margin: 10pt 1%;
-    }
-    #login{
-        margin-left: 0;
-    }
-    section nav li{
-        margin: 16pt 1%;
-        display: block;
-        text-align: center;
-    }
+
 }

@@ -67,8 +67,8 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="clientes-cadastrados.php">Buscar Usuários</a></li>
-                    <li><a href="cadastro-de-venda.html">Cadastro de Vendas</a></li>
+                    <li><a href="clientes-cadastrados.php">Buscar Cliente</a></li>
+                    <li><a href="cadastro-de-venda.html">Cadastro de Venda</a></li>
                     <li><a href="vendas-cadastradas.php">Buscar Vendas</a></li>
                 </ul>
             </nav>
@@ -143,11 +143,10 @@
                                     echo "<td>$linhas->nome_do_vendedor</td>";
                                     echo "<td>$linhas->cliente</td>";
 
-                                    echo "<td><a href='#' onClick='informando()'>Excluir</a></td>";
-                                    echo "<td><a href='#' onClick='informando()'>Alterar</a></td>";
-
-                                    //echo "<td><a href='control/control-excluir-venda.php?id=$linhas->id_venda'>Excluir</a></td>";
+                                    echo "<td><a href='control/control-excluir-venda.php?id=$linhas->id_venda'>Excluir</a></td>";
                                     //echo "<td><a href='alterar-venda.php?id=$linhas->id_venda'>Alterar</a></td>";
+
+                                    echo "<td><a href='#' onClick='informando()'>Alterar</a></td>";
                                 echo "</tr>";
                             }
                         ?>
@@ -167,6 +166,7 @@
             </div>
 
         </section>
+        
         <footer>
             
         </footer>
