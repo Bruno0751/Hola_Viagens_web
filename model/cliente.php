@@ -8,7 +8,7 @@
     private $senha;
     private $img;
     private $data;
-    
+    private $imgTemp;
 
     public function __construct(){}
 
@@ -28,6 +28,7 @@
                     Login: $this->login
                     Senha: $this->senha
                     Imagem: $this->img
-                    Data: $this->data");
+                    Data: $this->data
+                    IMG: $this->imgTemp");
     }
   }

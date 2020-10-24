@@ -19,25 +19,31 @@
     
     $daoCliente = new DAOCliente();
 
-    //$verificarIDCliente =
-
+    //  VERICA ID DO CLIENTE/CHAVE PRIMARIA
     if($daoCliente->verificarIDDOCliente($cliente->idCliente) != null){
 
         $_SESSION['msg'] = "ID Inválida";
         header('location:../load-cadastro-de-cliente.html');
         ob_end_flush();
-
         
 
-    }else if($cliente->img == null){
+    }
+    //  VERIFICA SE HÁ FOTO CADASTRADA E CADASTRA CLIENTE
+    else if($cliente->img == null){
 
-        $cliente->img = "Sem Foto";
+        /*
+        $cliente->imgTemp = "Sem Foto";
+        $_SESSION['serializarVar'] = serialize($cliente->imgTemp); 
+        */
+        $_SESSION['msg'] = "Nenhuma Foto Cadastrada";
         $daoCliente->cadastrarCliente($cliente);
-        $_SESSION['msg'] = "Cliente Cadastrado";
         header('location:../load-cadastro-de-cliente.html');
+        //$cliente->__destruct();
         ob_end_flush();
 
-    }else if($daoCliente->verificarImagemDOCliente($cliente->img) != null){
+    }
+    //  VERIFICA SE HÁ UMA FOTO COM O MESMO NOME E NÃO É CADASTRADO O CLIENTE
+    else if($daoCliente->verificarImagemDOCliente($cliente->img) != null){
 
         $_SESSION['msg'] = "Imagem Inválida";
         header('location:../load-cadastro-de-cliente.html');
@@ -58,6 +64,4 @@
         header('location:../load-cadastro-de-cliente.html');
         ob_end_flush();
 
-    }
-    //$validacaoEmail = new Validacao();
-              
+    }              

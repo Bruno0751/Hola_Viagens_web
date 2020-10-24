@@ -67,7 +67,7 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="clientes-cadastrados.php">Buscar Cliente</a></li>
+                    <li><a href="clientes-cadastrados.php">Buscar Clinte</a></li>
                     <li><a href="cadastro-de-venda.html">Cadastro de Venda</a></li>
                     <li><a href="vendas-cadastradas.php">Buscar Vendas</a></li>
                 </ul>
@@ -144,13 +144,20 @@
                                     echo "<td>$linhas->nome_completo</td>";
                                     echo "<td>$linhas->email</td>";
                                     echo "<td>$linhas->lgin</td>";
-                                    echo "<td ><a href='files/$linhas->foto' data-lightbox='mygallery'><img src='files/$linhas->foto' alt='Minha Foto' class='u-photo'></a></td>";
-             
+                                    echo "<td ><a href='files/$linhas->foto' data-lightbox='mygallery'><img src='files/$linhas->foto' alt='Sem Foto' class='u-photo'></a></td>";
                                     echo "<td>$linhas->data_de_nascimento</td>";
+
                                     echo "<td><a href='control/control-excluir-cliente.php?id=$linhas->id_cliente'>Excluir</a></td>";
                                     echo "<td><a href='alterar-cliente.php?id=$linhas->id_cliente'>Alterar</a></td>";
                                 echo "</tr>";
                             }
+                            /*
+                            if(isset($_SESSION['serializarVar'])){
+                                $cliente = unserialize($_SESSION['serializarVar']);
+                                echo "<br>" . $cliente->imgTemp;
+                            }
+                            unset($_SESSION['serializarVar']);
+                            */
                         ?>
 
                     </tbody>

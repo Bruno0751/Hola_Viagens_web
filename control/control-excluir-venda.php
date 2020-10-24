@@ -5,6 +5,7 @@
     include '../dao/dao-venda.php';
 
     $daoVenda = new DAOVenda();
+
     $daoVenda->deletarVenda($_GET['id']);
 
     $_SESSION['msg'] = "Venda Excluido";

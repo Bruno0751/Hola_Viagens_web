@@ -105,6 +105,21 @@
       }
     }
 
+    public function verificarFKDAVenda($fk){
+      try{
+          $stat = $this->conexao->prepare("SELECT cliente FROM venda WHERE cliente = ?");
+          $stat->bindValue(1, $fk);
+          $stat->execute();
+  
+          $fk = null;
+          $fk = $stat->fetchObject('Venda');
+
+          return $fk;
+      }catch(PDOException $erro){ 
+          echo "Erro ao Verificar FK" . $erro;
+      }
+  }
+
     public function filtrarCliente($pesquisa, $filtro){
      try{
        $query = "";
