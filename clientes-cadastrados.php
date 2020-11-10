@@ -34,7 +34,7 @@
         
         <link rel="stylesheet" type="text/css" href="style/styles.css">
         <link rel="stylesheet" type="text/css" href="css/lightbox.min.css">
-        <link rel="shortcut icon" href="#">
+        <link rel="shortcut icon" href="images/logo.png">
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 

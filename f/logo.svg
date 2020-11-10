@@ -9,14 +9,14 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="2011pt"
-   height="545pt"
+   width="2681.3333"
+   height="726.66669"
    viewBox="0 0 709.43651 192.26323"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="logo.svg"
-   inkscape:export-filename="C:\Users\bruno\Área de Trabalho\site\images\logo.png"
+   inkscape:export-filename="C:\xampp\htdocs\b\Hola_Viagens_web\f\bitmap.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -29,12 +29,12 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="675.28704"
-     inkscape:cy="423.85797"
+     inkscape:cx="1257.9334"
+     inkscape:cy="-33.284887"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     units="pt"
+     units="px"
      inkscape:window-width="1680"
      inkscape:window-height="987"
      inkscape:window-x="-8"
@@ -57,12 +57,12 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-104.73708)">
+     transform="translate(0,-104.73709)">
     <flowRoot
        xml:space="preserve"
        id="flowRoot8452"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Segoe Script';-inkscape-font-specification:'Segoe Script';letter-spacing:0px;word-spacing:0px;fill:#55ddff;fill-opacity:1;stroke:none"
-       transform="matrix(2.827394,0,0,3.9846944,-510.89063,-1024.9558)"><flowRegion
+       transform="matrix(2.8118972,0,0,4.7349288,-526.0408,-1257.226)"><flowRegion
          id="flowRegion8454"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe Script';-inkscape-font-specification:'Segoe Script';fill:#55ddff"><rect
            id="rect8456"
@@ -71,6 +71,6 @@
            x="183.84776"
            y="284.21988"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe Script';-inkscape-font-specification:'Segoe Script';fill:#55ddff" /></flowRegion><flowPara
-         id="flowPara8458">HolaViajens</flowPara><flowPara
+         id="flowPara8458">HolaViagens</flowPara><flowPara
          id="flowPara8460" /></flowRoot>  </g>
 </svg>
