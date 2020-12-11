@@ -11,7 +11,7 @@
 
     $venda->idVenda = Validacao::antiXSS($_POST['textID']);
     $venda->dataDAVenda = $_POST['dataDataDAVenda'];
-    $venda->nomeDOVendedor = Validacao::antiXSS($_POST['textNomeDOVendedor']);
+    $venda->nomeDOVendedor = Validacao::antiXSS(Padronizacao::padronizandoNome($_POST['textNomeDOVendedor']));
     $venda->cliente = Validacao::antiXSS($_POST['textCliente']);
     
     $daoVenda = new DAOVenda();
@@ -21,9 +21,7 @@
         $_SESSION['msg'] = "ID Inválida";
         header('location:../load-cadastro-de-venda.html');
         ob_end_flush();
-
-        
-
+       
     }else if($daoVenda->verificarIDClienteFK($venda->cliente) == null){
 
         $_SESSION['msg'] = "ID do Cliente Inválida/Cliente não Existe";
@@ -38,5 +36,4 @@
         ob_end_flush();
 
     }
-    //$validacaoEmail = new Validacao();
               

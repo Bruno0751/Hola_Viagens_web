@@ -17,7 +17,6 @@
         -->
         <title>HolaViagens</title>
 
-        
         <meta charset="UTF-8">
 		<!--
             <meta http-equiv="default-style" content="">
@@ -39,7 +38,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
         <script src="js/lightbox-plus-jquery.min.js"></script>
-        <script type="text/javascript" src="js/script.js"></script>
+        <script src="js/script.js"></script>
         
     </head>
     <body>
